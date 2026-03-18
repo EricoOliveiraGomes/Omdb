@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.4.11612.150 stable
+VisualStudioVersion = 18.4.11612.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmdbApi", "OmdbApi\OmdbApi.csproj", "{F388BC94-10C1-AE84-8E90-4DA377FDD3F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmdbWorkerService", "OmdbWorkerService\OmdbWorkerService.csproj", "{2F054B32-C0D9-523A-6F32-658159D28F1B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{DCBAFC53-8B60-4F22-B2E2-B4CC7393B197}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repo", "repo", "{DCBAFC53-8B60-4F22-B2E2-B4CC7393B197}"
 	ProjectSection(SolutionItems) = preProject
 		repo\Omdb.db = repo\Omdb.db
 	EndProjectSection
