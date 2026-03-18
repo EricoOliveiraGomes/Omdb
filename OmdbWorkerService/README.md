@@ -2,7 +2,8 @@
 
     • Visão geral da solução.
 
-    Worker que rida em background a cada dois minutos e acesso a API do OMDB para randômicamente filmes e séries  e salvar no arquivo de banco de dados do SQLite
+    Worker que rida em background a cada dois minutos e acesso a API do OMDB para randômicamente filmes e séries  e salvar no arquivo de banco de dados do SQLite. A limitação de rodar a cada dois minutos é 
+    devido à versão free da API do OMDB suportar no máximo 1000 requisições por dia
 
     • Instruções exatas de como rodar o projeto.
 
@@ -10,7 +11,7 @@
 
     • Decisões arquiteturais tomadas.
 
-    Utilizei um modelo do visual studio para ter já uma estrutura base de um worker que roda em background
+    Utilizei um modelo do visual studio para ter já uma estrutura base de um worker que roda em background. O caminho do banco de dados e a uri da API do OMDB estão configurados no appsettings.json
 
     • O que você melhoraria se tivesse mais tempo.
 

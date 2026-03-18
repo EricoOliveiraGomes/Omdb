@@ -14,7 +14,7 @@
     • Decisões arquiteturais tomadas.
 
     Utilizei um modelo do visual studio para ter já uma estrutura base simples de uma API com apenas um método GET para trazer os dados do arquivo de banco de dados do SQLite.
-    Também utilizei abordagem simples para consultar os dados no banco de dados.
+    Também utilizei abordagem simples para consultar os dados no banco de dados. O caminho do banco de dados está configurado no appsettings.json
 
     • O que você melhoraria se tivesse mais tempo.
 
