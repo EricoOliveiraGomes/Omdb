@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmdbApi", "OmdbApi\OmdbApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmdbWorkerService", "OmdbWorkerService\OmdbWorkerService.csproj", "{2F054B32-C0D9-523A-6F32-658159D28F1B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{DCBAFC53-8B60-4F22-B2E2-B4CC7393B197}"
+	ProjectSection(SolutionItems) = preProject
+		repo\Omdb.db = repo\Omdb.db
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
