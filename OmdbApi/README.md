@@ -19,5 +19,6 @@
     • O que você melhoraria se tivesse mais tempo.
 
     Faria a parte do docker. Não foi possível fazer essa parte pois está com algum problema que não carregava e não consegui identificar e resolver o problema a tempo
-    Criaria métodos diversos para filtrar os dados oriundos do json gravado no banco
-    Faria uma estrutura mais arrojada com entity framework 
+    Criari métodos diversos para filtrar os dados oriundos do json gravado no banco
+    Faria uma estrutura mais arrojada com entity framework
+    Utilizar swagger também
