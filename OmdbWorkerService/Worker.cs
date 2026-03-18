@@ -1,5 +1,6 @@
 using Microsoft.Data.Sqlite;
 using System.Data;
+using System.Runtime.InteropServices;
 
 namespace OmdbWorkerService
 {
@@ -7,10 +8,11 @@ namespace OmdbWorkerService
     {
         private readonly ILogger<Worker> _logger;
         private readonly HttpClient _httpClient;
-        private static Random random = new();        
+        private static Random _random = new();        
         private readonly string _connectionString;
         private readonly IConfiguration _configuration;
         private readonly string _baseUri;
+        private const string _movieNotFound = "Movie not found";
 
         public Worker(ILogger<Worker> logger, IHttpClientFactory httpClientFactory, IConfiguration configuration)
         { 
@@ -23,6 +25,8 @@ namespace OmdbWorkerService
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+
+
             while (!stoppingToken.IsCancellationRequested)
             {
 
@@ -33,14 +37,21 @@ namespace OmdbWorkerService
                     char titulo = ObterLetraAleatoria();
                     int pagina = ObterPaginaAleatoria();
                     int ano = ObterAnoAleatorio();
-                    
-                    string requestUri = $"{_baseUri}&t={titulo}&page={pagina}&y={ano}";
+                    string tipoResultado = ObterTipoResultadoAleatorio();
+
+                    string requestUri = $"{_baseUri}&t={titulo}&type={tipoResultado}&y={ano}&page={pagina}";
 
                     var response = await _httpClient.GetAsync(requestUri, stoppingToken);
 
                     if (response.IsSuccessStatusCode)
                     {
                         var conteudo = await response.Content.ReadAsStringAsync(stoppingToken);
+
+                        if (conteudo.Contains(_movieNotFound))
+                        {
+                            _logger.LogInformation("API retornou 'Movie not found' para a consulta: {requestUri}", requestUri);
+                            continue;
+                        }
 
                         using (IDbConnection db = new SqliteConnection(_connectionString))
                         {                            
@@ -79,17 +90,27 @@ namespace OmdbWorkerService
         public static char ObterLetraAleatoria()
         {
             string alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            int index = random.Next(alfabeto.Length);
+            int index = _random.Next(alfabeto.Length);
             return alfabeto[index];
         }
 
         public static int ObterPaginaAleatoria()
         {            
-            return random.Next(1, 101);
+            return _random.Next(1, 101);
         }
         public static int ObterAnoAleatorio()
         {
-            return random.Next(1888, DateTime.Now.Year+1);
+            return _random.Next(1888, DateTime.Now.Year+1);
         }
+
+        public static string ObterTipoResultadoAleatorio()
+        {           
+            var opcoes = new List<string> { "movie", "series", "episode" };
+           
+            int index = _random.Next(opcoes.Count);
+            
+            return opcoes[index];
+        }
+
     }
 }
