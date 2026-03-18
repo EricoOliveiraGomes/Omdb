@@ -2,8 +2,8 @@
 
     • Visão geral da solução.
 
-    Worker que rida em background a cada dois minutos e acesso a API do OMDB para randômicamente filmes e séries  e salvar no arquivo de banco de dados do SQLite. A limitação de rodar a cada dois minutos é 
-    devido à versão free da API do OMDB suportar no máximo 1000 requisições por dia
+    Worker que rida em background a cada dois minutos e acessa a API do OMDB para randomicamente buscar filmes, séries e episódios, e salvar em um arquivo de banco de dados do SQLite. A limitação de rodar a
+    cada dois minutos é     devido à versão free da API do OMDB suportar no máximo 1000 requisições por dia
 
     • Instruções exatas de como rodar o projeto.
 
