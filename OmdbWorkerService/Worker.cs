@@ -25,8 +25,6 @@ namespace OmdbWorkerService
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-
-
             while (!stoppingToken.IsCancellationRequested)
             {
 
@@ -50,6 +48,7 @@ namespace OmdbWorkerService
                         if (conteudo.Contains(_movieNotFound))
                         {
                             _logger.LogInformation("API retornou 'Movie not found' para a consulta: {requestUri}", requestUri);
+                            await Task.Delay(120000, stoppingToken);
                             continue;
                         }
 
