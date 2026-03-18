@@ -32,7 +32,7 @@ namespace OmdbApi.Controllers
                 
                 while (reader.Read())
                 {
-                    retorno = retorno + reader.GetString(0) + "\n";
+                    retorno = retorno + reader.GetString(0) + "\n\n\n";
                 }
             }
 
